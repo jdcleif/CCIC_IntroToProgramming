@@ -1,5 +1,25 @@
-String noun = "school";
-String 
-
-print("Preston goes to ");
-print(noun);
+/* I had a stroke trying to do this and fucking died*/
+String adjective1 = "";
+String adjective2 = "";
+String typeofbird1 = "";
+String roominahouse1 = "" ;
+String verbpastense1 = "" ;
+String verb2 = "" ;
+String relativesname1 = "" ;
+String noun1 = "" ;
+String liquid1 = "" ;
+String verbendingining1 = "" ;
+String partofbodyplural1 = "" ;
+String pluralnoun1 = "" ;
+String verbendingining2 = "" ;
+String noun2 = "" ;
+println("It was a " + adjective1 + " November day. I");
+println("I woke up to the " + adjective2 + " smell of " + typeofbird1);
+println("roasting in the " + roominahouse1 + " downstairs. I");
+println(verbpastense1 + " down the stairs to see if I could");
+println("help " + verb2 + " the dinner. My mom said,");
+println("See if " + relativesname1 + " needs a fresh " + noun1+ ". So I");
+println("carried a tray of glasses full of" + liquid1 + "into");
+println(verbendingining1 + " room. When I got there, I");
+println("couldn't believe my" + partofbodyplural1 + "! There were");
+println(pluralnoun1 +" " + verbendingining2 + " on the " + noun2 + "!");
