@@ -5,7 +5,7 @@ int tie = 0;
 int order = 1;
 String[][] gameboard = {{"", "", ""},
                         {"", "", ""},
-                        {"", "",""}};
+                        {"", "",""}};                  
 void setup(){
   size(400, 400);
   background(0);
@@ -57,14 +57,14 @@ void checker(){
      if((gameboard[0][0] == "O" && gameboard[0][1] == "O" && gameboard[0][2] == "O") || (gameboard[1][0] == "O" && gameboard[1][1] == "O" && gameboard[1][2] == "O") || (gameboard[2][0] == "O" && gameboard[2][1] == "O" && gameboard[2][2] == "O") || (gameboard[0][0] == "O" && gameboard[1][0] == "O" && gameboard[2][0] == "O") || (gameboard[0][1] == "O" && gameboard[1][1] == "O" && gameboard[2][1] == "O") || (gameboard[0][2] == "O" && gameboard[1][2] == "O" && gameboard[2][2] == "O") || (gameboard[0][0] == "O" && gameboard[1][1] == "O" && gameboard[2][2] == "O") || (gameboard[2][0] == "O" && gameboard[1][1] == "O" && gameboard[0][2] == "O")){
     if(player1 == "O"){
       game = 2;
-      textSize(30);
       clear();
+      textSize(100);
       text("PlAYER 1 WINS", 66.5, 66.5);
     }
     else if(player2 == "O"){
       game = 2;
-      textSize(30);
       clear();
+      textSize(100);
       text("PLAYER 2 WINS", 66.5, 66.5);
     }
     }
@@ -79,7 +79,7 @@ void checker(){
     clear();
     game = 3;
     textSize(100);
-     text("TIE", 66.5, 66.5);
+     text("TIE", 120, 100);
     }
     else if(game == 1 && tie < 9){
     tie =0;
