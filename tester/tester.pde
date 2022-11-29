@@ -1,3 +1,4 @@
+
 Player P1 = new Player();
 float ypos = 740;
 float xpos = 400;
@@ -7,24 +8,20 @@ int level = 1;
 int spawn = 0;
 void setup(){
   size(800, 800);
-  Car[] cars = new Car[50*level];
-for(int i = 0; i < 50 * level; i++){
-cars[i] = new Car(random(0,600), int(random(0,1)));
-}
-spawn = 1;
 }
 void draw(){
   background(0);
   P1.locationupdate();
   P1.nextLevel();
-  carmover();
-  
-}
-void carmover(){
-  for(int i = 0; i < 50 * level; i++){
+ Car[] cars = new Car[50*level];
+for(int i = 0; i < 50 * level; i++){
+cars[i] = new Car(random(0,600), int(random(0,1)));
 cars[i].carmove();
+cars[i].collision();
 }
-}
+} 
+
+
 
 class Player{
 void locationupdate(){
@@ -83,7 +80,13 @@ void carmove(){
   carx-=5;
   carx-=level;
   }
+  fill(255,255,255);
   rect(carx, cary, 60, 60);
 }  
+}
+void collision(){
+  if(((carx - xpos) < 60) && ((xpos - carx) < 60) && ((cary - ypos) < 60) && ((ypos - cary) < 60)){
+    exit();
+  }
 }
 }
