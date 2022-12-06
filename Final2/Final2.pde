@@ -9,6 +9,7 @@ int spawn = 0;
 int charge = 0;
 int spawned1 = 0;
 boolean levelup = false;
+int levelupcheck = 0;
 int chargemax = 200;
 float RiseoverRun = 0;
  Car[] cars = new Car[25];
@@ -83,6 +84,7 @@ void nextLevel(){
   ypos = 840;
   level++;
   chargemax+=100;
+  levelup = true;
   }
 }
 }
@@ -124,8 +126,17 @@ void carmove(){
   if(levelup == true && conv == 0){
     carx = random(-800, 400);
     cary = random(0,600);
+    levelupcheck++;
   }
-  if(level
+  if(levelup == true && conv == 1){
+    carx = random(400, 1600);
+    cary = random(0,600);
+    levelupcheck++;
+  }
+  if(levelupcheck==25){
+    levelup = false;
+    levelupcheck = 0;
+  }
     
   fill(255,255,255);
   rect(carx, cary, 60, 60);
