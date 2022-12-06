@@ -1,4 +1,3 @@
-//Note: add *level to the movement and spawn after fixes
 Player P1 = new Player();
 float ypos = 740;
 float xpos = 400;
