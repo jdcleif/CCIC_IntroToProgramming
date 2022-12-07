@@ -98,7 +98,7 @@ if(key == 'd'){
   xpos += speed;
 }
 }
-rect(xpos, ypos,60, 60);
+rect(xpos, ypos,30, 30);
 }
 void nextLevel(){
   if(ypos < -40){
@@ -165,7 +165,7 @@ void carmove(){
 }
 void collision(){
   if(collision == true){
-  if(((carx - xpos) < 60 && (xpos - carx) < 60) && ((cary - ypos) < 60 && (ypos - cary) < 60)){
+  if(((carx - xpos) < 30 && (xpos - carx) < 60) && ((cary - ypos) < 30 && (ypos - cary) < 60)){
     level = 1;
     chargemax = 200;
     charge = 0;
