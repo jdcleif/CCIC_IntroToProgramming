@@ -1,3 +1,4 @@
+//It's finally done. I didn't know where to put any return statements. Suggestions are welcome!
 Player P1 = new Player();
 float ypos = 740;
 float xpos = 400;
@@ -11,30 +12,48 @@ boolean levelup = false;
 int levelupcheck = 0;
 int chargemax = 200;
 float RiseoverRun = 0;
- Car[] cars = new Car[25];
+ Car[] cars = new Car[20];
 void setup(){
   size(800, 800);
+  strokeWeight(1);
+
 }
 void draw(){
   background(0);
   P1.locationupdate();
   P1.nextLevel();
   charge();
+  levelcounter();
+  x();
 
- for(int p = 0; p < 25; p++){
-   if(spawn < 25){
+ for(int p = 0; p < 20; p++){
+   if(spawn < 20){
  cars[p] = new Car(random(0,600), random(0,1));
  spawn++;
    }
  }
 
-for(int i = 0; i < 25; i++){
+for(int i = 0; i < 20; i++){
 cars[i].carmove();
 cars[i].collision();
 }
 }
+void levelcounter(){
+  textSize(40);
+  fill(255);
+  text("Level: " + level,600,40);
+}
+void x(){
+  textSize(150);
+  text("X", 727, 800);
+  if(mouseX >= 727 && mouseY >= 700){
+    fill(255,0,0);
+    text("X", 727, 800);
+  }
+
+}
 void charge(){
-  if(ypos < 600 && charge < chargemax){
+  if(ypos < 400 && charge < chargemax){
    charge+=1;
    
   }
@@ -47,10 +66,13 @@ void charge(){
 void mouseClicked(){
   if(charge >= 200){
   collision = false;
-  xpos = mouseX + 15;
-  ypos = mouseY + 15;
+  xpos = mouseX - 30;
+  ypos = mouseY - 30;
   charge -= 200;
   collision = true;
+  }
+  if(mouseX >= 727 && mouseY >= 700){
+    exit();
   }
 }
   
@@ -76,7 +98,7 @@ if(key == 'd'){
   xpos += speed;
 }
 }
-rect(xpos, ypos,30, 30);
+rect(xpos, ypos,60, 60);
 }
 void nextLevel(){
   if(ypos < -40){
@@ -132,7 +154,7 @@ void carmove(){
     cary = random(0,600);
     levelupcheck++;
   }
-  if(levelupcheck==25){
+  if(levelupcheck==20){
     levelup = false;
     levelupcheck = 0;
   }
@@ -143,8 +165,13 @@ void carmove(){
 }
 void collision(){
   if(collision == true){
-  if(((carx - xpos) < 30 && (xpos - carx) < 30) && ((cary - ypos) < 30 && (ypos - cary) < 30)){
-    exit();
+  if(((carx - xpos) < 60 && (xpos - carx) < 60) && ((cary - ypos) < 60 && (ypos - cary) < 60)){
+    level = 1;
+    chargemax = 200;
+    charge = 0;
+    ypos = 740;
+    xpos = 400;
+    levelup = true;
   }
   }
 }
