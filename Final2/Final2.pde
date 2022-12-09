@@ -66,8 +66,8 @@ void charge(){
 void mouseClicked(){
   if(charge >= 200){
   collision = false;
-  xpos = mouseX - 30;
-  ypos = mouseY - 30;
+  xpos = mouseX - 15;
+  ypos = mouseY - 15;
   charge -= 200;
   collision = true;
   }
