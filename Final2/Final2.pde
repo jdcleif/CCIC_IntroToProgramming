@@ -24,8 +24,8 @@ void draw(){
   P1.nextLevel();
   charge();
   levelcounter();
+  thingy();
   x();
-
  for(int p = 0; p < 20; p++){
    if(spawn < 20){
  cars[p] = new Car(random(0,600), random(0,1));
@@ -38,6 +38,30 @@ cars[i].carmove();
 cars[i].collision();
 }
 }
+void thingy(){
+  if(keyPressed){
+    if(key == 'e'){
+      if(charge > 0){
+        
+        collision = false;
+      
+      }
+     
+    }
+  }
+  if(charge <= 0 || keyPressed == false){
+    collision = true;
+  }
+  if(collision == false){
+    if(ypos < 400){
+    charge-=2;
+    }
+    else{
+      charge-=1;
+    }
+  }
+  }
+
 void levelcounter(){
   textSize(40);
   fill(255);
@@ -82,7 +106,12 @@ void mouseClicked(){
 
 class Player{
 void locationupdate(){
+  if(collision == true){
 fill(0, 200, 30);
+  }
+  else{
+    fill(0, 250, 220);
+  }
 if(keyPressed){
 
 if(key == 'w'){
@@ -130,6 +159,7 @@ public Car(float y, float value){
   }
 }
 void carmove(){
+  if(level != 10){
   if(spawned == 1){
   if(conv == 0){
   carx+=1 + level;
@@ -163,7 +193,9 @@ void carmove(){
   rect(carx, cary, 60, 60);
 }  
 }
+}
 void collision(){
+  if(level != 10){
   if(collision == true){
   if(((carx - xpos) < 30 && (xpos - carx) < 60) && ((cary - ypos) < 30 && (ypos - cary) < 60)){
     level = 1;
@@ -174,5 +206,6 @@ void collision(){
     levelup = true;
   }
   }
+}
 }
 }
